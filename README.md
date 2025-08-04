@@ -1,6 +1,10 @@
-# nodetest
+# Circular Classes
 
-An collection of examples of circular class dependencies in `bun` and `typescript`.
+An collection of examples of circular class dependencies in `bun` and `typescript`. In all three cases intellisense
+works as expected, but in the naive synchronous import fase, `bun` panics with a reference error:
+```sh
+ReferenceError: Cannot access 'Node' before initialization.
+```
 
 ## Setup
 

@@ -3,7 +3,7 @@
     "@types/bun": "latest"
   },
   "module": "index.ts",
-  "name": "nodetest",
+  "name": "circularclasses",
   "peerDependencies": {
     "typescript": "^5"
   },
