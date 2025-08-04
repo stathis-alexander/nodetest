@@ -7,12 +7,9 @@ export class Nodes {
   private static _Or: Constructor<Or> = null as any;
 
   static get And() {
-    if(!this._And) this._And = require('./and').And;
-    return this._And;
+    return this._And ??= this._And = require('./and').And;
   }
-
   static get Or() {
-    if(!this._Or) this._Or = require('./or').Or;
-    return this._Or;
+    return this._Or ??= this._Or = require('./or').Or;
   }
 }
