@@ -1,12 +1,12 @@
 {
-  "name": "nodetest",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
+  "module": "index.ts",
+  "name": "nodetest",
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "private": true,
+  "type": "module"
 }

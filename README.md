@@ -1,5 +1,7 @@
 # nodetest
 
+An collection of examples of circular class dependencies in `bun` and `typescript`.
+
 ## Setup
 
 ```sh
@@ -12,7 +14,7 @@ bun install
 ### Fail Case We Want To Work
 
 ```sh
-❯ bun index.ts
+❯ bun sync.ts
 1 | import { Node } from './node';
 2 |
 3 | export class And extends Node {
@@ -24,8 +26,25 @@ ReferenceError: Cannot access 'Node' before initialization.
 Bun v1.2.19 (macOS arm64)
 ```
 
-### Working Case Without Imports
+Naively importing classes from several files does not work since `bun` will do DFS on the dependencies and then sort
+them in reverse by depth, causing the `Mixins` class to be defined last.
+
+### Working Case: Single File
 
 ```sh
-❯ bun onefile.ts
+❯ bun singleFile.ts
+Success!
 ```
+
+However, defining all the classes in a single file works as you'd expect, so long as you define the classes in the
+appropriate order.
+
+
+### Working Case: Lazy Imports
+
+```sh
+❯ bun lazy.ts
+Success!
+```
+
+A workaround is to implement a lazy loading pattern, as seen in `lazy.ts`.
